@@ -8,23 +8,24 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 20 14% 8%;
-    --foreground: 45 100% 90%;
+    /* Light mode colors */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
-    --card: 20 14% 10%;
-    --card-foreground: 45 100% 90%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
 
-    --popover: 20 14% 10%;
-    --popover-foreground: 45 100% 90%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
 
     --primary: 45 100% 51%;
     --primary-foreground: 20 14% 8%;
 
-    --secondary: 25 25% 15%;
-    --secondary-foreground: 45 100% 90%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 25 25% 15%;
-    --muted-foreground: 45 30% 60%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
     --accent: 45 100% 51%;
     --accent-foreground: 20 14% 8%;
@@ -32,8 +33,8 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 25 25% 20%;
-    --input: 25 25% 15%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
     --ring: 45 100% 51%;
 
     /* Custom luxury colors */
@@ -46,11 +47,11 @@ All colors MUST be HSL.
     /* Gradients */
     --gradient-gold: linear-gradient(135deg, hsl(45 100% 51%), hsl(35 100% 45%));
     --gradient-dark: linear-gradient(135deg, hsl(20 14% 8%), hsl(25 25% 15%));
-    --gradient-luxury: linear-gradient(135deg, hsl(20 14% 8%) 0%, hsl(25 25% 15%) 50%, hsl(45 100% 51%) 100%);
+    --gradient-luxury: linear-gradient(135deg, hsl(45 100% 51%) 0%, hsl(35 100% 45%) 50%, hsl(25 25% 15%) 100%);
     
     /* Shadows */
     --shadow-luxury: 0 10px 30px -5px hsl(45 100% 51% / 0.3);
-    --shadow-card: 0 8px 25px -8px hsl(0 0% 0% / 0.4);
+    --shadow-card: 0 8px 25px -8px hsl(0 0% 0% / 0.1);
     --shadow-glow: 0 0 30px hsl(45 100% 51% / 0.5);
 
     --radius: 0.5rem;
@@ -100,6 +101,10 @@ All colors MUST be HSL.
     --border: 25 25% 20%;
     --input: 25 25% 15%;
     --ring: 45 100% 51%;
+    
+    /* Shadows for dark mode */
+    --shadow-card: 0 8px 25px -8px hsl(0 0% 0% / 0.4);
+  }
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;

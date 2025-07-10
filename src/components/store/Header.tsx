@@ -1,7 +1,8 @@
-import { Search, ShoppingBag, User, Menu, Heart } from "lucide-react";
+import { Search, ShoppingBag, User, Menu, Heart, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { useState, useEffect } from "react";
 
 interface HeaderProps {
   cartItemsCount?: number;
@@ -9,6 +10,33 @@ interface HeaderProps {
 }
 
 export const Header = ({ cartItemsCount = 0, onSearchChange }: HeaderProps) => {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // Check if user has a preference stored
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+      setIsDark(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setIsDark(false);
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    
+    if (newTheme) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-4 py-4">
@@ -40,6 +68,10 @@ export const Header = ({ cartItemsCount = 0, onSearchChange }: HeaderProps) => {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
+            <Button variant="ghost" size="icon" onClick={toggleTheme}>
+              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </Button>
+            
             <Button variant="ghost" size="icon" className="hidden md:flex">
               <Heart className="h-5 w-5" />
             </Button>

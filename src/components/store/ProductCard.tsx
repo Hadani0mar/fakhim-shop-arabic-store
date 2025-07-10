@@ -28,9 +28,10 @@ export const ProductCard = ({
   isFavorite = false 
 }: ProductCardProps) => {
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('ar-SA', {
+    return new Intl.NumberFormat('ar-LY', {
       style: 'currency',
-      currency: 'SAR'
+      currency: 'LYD',
+      minimumFractionDigits: 2
     }).format(price);
   };
 
@@ -45,7 +46,7 @@ export const ProductCard = ({
       {/* Image Container */}
       <div className="relative overflow-hidden aspect-square">
         <img
-          src={product.image_url}
+          src={product.image_url.startsWith('http') ? product.image_url : "/api/placeholder/300/300"}
           alt={product.name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           onError={(e) => {
